@@ -7,6 +7,7 @@ import string
 from words_list import *
 from colorama import Fore, Style
 
+
 def get_valid_word():
     """
     Check whether the word is valid for the game
@@ -16,6 +17,7 @@ def get_valid_word():
         word = random.choice(words_list)
     return word.upper()
 
+
 def hungman():
     """
     Main game function
@@ -24,7 +26,6 @@ def hungman():
     letters_in_word = set(word_to_use)
     alphabet = set(string.ascii_uppercase)
     used_letters = set()
-    
     lives = 6
 
     while len(letters_in_word) > 0 and lives > 0:
@@ -39,8 +40,12 @@ def hungman():
 You've used these letters: {' '.join(used_letters)}
             ''')
         # Get the hidden word
-        secret_word = [letter if letter in used_letters else '_' for letter in word_to_use]
-        print(f'''Current word: {Fore.YELLOW}{' '.join(secret_word)}{Fore.WHITE}''')
+        secret_word = [
+                letter if letter in used_letters else '_' for letter in word_to_use
+            ]
+        print(f'''
+Current word: {Fore.YELLOW}{' '.join(secret_word)}{Fore.WHITE}
+        ''')
         # Get user input
         user_guess = input('Guess a letter: ').upper()
         # Check if the user input is valid
@@ -51,7 +56,7 @@ You've used these letters: {' '.join(used_letters)}
             if user_guess in letters_in_word:
                 letters_in_word.remove(user_guess)
                 if len(letters_in_word) == 0:
-                  print(f'''
+                    print(f'''
 {Fore.BLUE}You guessed correctly!
 The word was {Fore.YELLOW}{word_to_use}{Fore.BLUE}
 Lives left: {Fore.RED}{lives}{Fore.WHITE}{Style.RESET_ALL}
@@ -63,11 +68,12 @@ Lives left: {Fore.RED}{lives}{Fore.WHITE}{Style.RESET_ALL}
             print(f'''{Fore.RED}You've already used it!{Fore.WHITE}''')
         else:
             print(f'''{Fore.RED}Invalid character!{Fore.WHITE}''')
-        
     if lives == 0:
         print(f'''
-{Fore.RED}You've died! The word was: {Fore.YELLOW}{word_to_use}{Fore.WHITE}{Style.RESET_ALL}
+{Fore.RED}You've died! The word was: {Fore.YELLOW}{word_to_use}
+{Fore.WHITE}{Style.RESET_ALL}
         ''')
+
 
 def main():
     """
