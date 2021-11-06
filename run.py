@@ -1,7 +1,7 @@
 """
 Main file of the game
 """
-
+import os
 import random
 import string
 from words_list import *
@@ -40,7 +40,7 @@ You've used these letters: {' '.join(used_letters)}
             ''')
         # Get the hidden word
         secret_word = [letter if letter in used_letters else '_' for letter in word_to_use]
-        print(f'''Current word: {' '.join(secret_word)}''')
+        print(f'''Current word: {Fore.YELLOW}{' '.join(secret_word)}{Fore.WHITE}''')
         # Get user input
         user_guess = input('Guess a letter: ').upper()
         # Check if the user input is valid
@@ -52,20 +52,22 @@ You've used these letters: {' '.join(used_letters)}
                 letters_in_word.remove(user_guess)
                 if len(letters_in_word) == 0:
                   print(f'''
-You guessed correctly!
-The word was {word_to_use}
-Lives left: {lives}
+{Fore.BLUE}You guessed correctly!
+The word was {Fore.YELLOW}{word_to_use}{Fore.BLUE}
+Lives left: {Fore.RED}{lives}{Fore.WHITE}{Style.RESET_ALL}
                   ''')
             # Otherwise, reduce lives
             else:
                 lives -= 1
         elif user_guess in used_letters:
-            print("You've already used it!")
+            print(f'''{Fore.RED}You've already used it!{Fore.WHITE}''')
         else:
-            print('invalid')
+            print(f'''{Fore.RED}Invalid character!{Fore.WHITE}''')
         
     if lives == 0:
-      print(f'''You've died! The word was: {word_to_use}''')
+      print(f'''
+{Fore.RED}You've died! The word was: {Fore.YELLOW}{word_to_use}{Fore.WHITE}{Style.RESET_ALL}
+      ''')
 main()
 
 
