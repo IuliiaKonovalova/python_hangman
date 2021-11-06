@@ -47,7 +47,12 @@ You've used these letters: {' '.join(used_letters)}
             # if guess is correct remove from user_guess
             if user_guess in letters_in_word:
                 letters_in_word.remove(user_guess)
-
+                if len(letters_in_word) == 0:
+                  print(f'''
+You guessed correctly!
+The word was {word_to_use}
+Lives left: {lives}
+                  ''')
             # Otherwise, reduce lives
             else:
                 lives -= 1
