@@ -27,8 +27,11 @@ def main():
     lives = 6
 
     while len(letters_in_word) > 0 and lives > 0:
+        # Loops till the conditions are met
+        # Print reminded lives
         print(f'''Lives: {lives}''')
-        print(f'''You've used these letters: {' '.join(used_letters)}''')
+        if len(used_letters) > 0:
+            print(f'''You've used these letters: {' '.join(used_letters)}''')
         secret_word = [letter if letter in used_letters else '_' for letter in word_to_use]
         print(f'''Current word: {' '.join(secret_word)}''')
         user_guess = input('Guess a letter: ').upper()
