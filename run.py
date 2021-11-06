@@ -17,14 +17,13 @@ def get_valid_word():
     return word.upper()
 
 def hungman():
-
+    """
+    Main game function
+    """
     word_to_use = get_valid_word()
     letters_in_word = set(word_to_use)
     alphabet = set(string.ascii_uppercase)
     used_letters = set()
-    print(letters_in_word)
-    print(word_to_use)
-    print(alphabet)
     
     lives = 6
 
@@ -66,13 +65,16 @@ Lives left: {Fore.RED}{lives}{Fore.WHITE}{Style.RESET_ALL}
             print(f'''{Fore.RED}Invalid character!{Fore.WHITE}''')
         
     if lives == 0:
-      print(f'''
+        print(f'''
 {Fore.RED}You've died! The word was: {Fore.YELLOW}{word_to_use}{Fore.WHITE}{Style.RESET_ALL}
-      ''')
+        ''')
 
 def main():
+    """
+    Main function
+    Clears terminal and call hungman function
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
     hungman()
-
 
 main()
