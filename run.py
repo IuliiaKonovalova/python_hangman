@@ -16,7 +16,8 @@ def get_valid_word():
         word = random.choice(words_list)
     return word.upper()
 
-def main():
+def hungman():
+
     word_to_use = get_valid_word()
     letters_in_word = set(word_to_use)
     alphabet = set(string.ascii_uppercase)
@@ -68,6 +69,10 @@ Lives left: {Fore.RED}{lives}{Fore.WHITE}{Style.RESET_ALL}
       print(f'''
 {Fore.RED}You've died! The word was: {Fore.YELLOW}{word_to_use}{Fore.WHITE}{Style.RESET_ALL}
       ''')
+
+def main():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    hungman()
+
+
 main()
-
-
