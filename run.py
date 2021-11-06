@@ -5,6 +5,7 @@ Main file of the game
 import random
 import string
 from words_list import *
+from colorama import Fore, Style
 
 def get_valid_word():
     """
@@ -29,7 +30,9 @@ def main():
     while len(letters_in_word) > 0 and lives > 0:
         # Loops till the conditions are met
         # Print reminded lives
-        print(f'''\nLives: {lives}''')
+        print(f'''
+{Style.BRIGHT}Lives: {Fore.RED}{lives}{Fore.WHITE}
+''')
         # Print used letters
         if len(used_letters) > 0:
             print(f'''
