@@ -29,17 +29,26 @@ def main():
     while len(letters_in_word) > 0 and lives > 0:
         # Loops till the conditions are met
         # Print reminded lives
-        print(f'''Lives: {lives}''')
+        print(f'''\nLives: {lives}''')
+        # Print used letters
         if len(used_letters) > 0:
-            print(f'''You've used these letters: {' '.join(used_letters)}''')
+            print(f'''
+You've used these letters: {' '.join(used_letters)}
+            ''')
+        # Get the hidden word
         secret_word = [letter if letter in used_letters else '_' for letter in word_to_use]
         print(f'''Current word: {' '.join(secret_word)}''')
+        # Get user input
         user_guess = input('Guess a letter: ').upper()
+        # Check if the user input is valid
         if user_guess in alphabet - used_letters:
+            # Add user input to the used_letters set
             used_letters.add(user_guess)
+            # if guess is correct remove from user_guess
             if user_guess in letters_in_word:
                 letters_in_word.remove(user_guess)
-                print(f'''Current word: {' '.join(secret_word)}''')
+
+            # Otherwise, reduce lives
             else:
                 lives -= 1
         elif user_guess in used_letters:
