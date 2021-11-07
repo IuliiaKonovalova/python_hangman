@@ -17,3 +17,11 @@ This small project was created based on [Kylie Ying's](https://www.youtube.com/c
 
 - [Colorama](https://pypi.org/project/colorama/) was used to add colors and styles to the project.
  ---
+## Acknowledgements
+
+- [freeCodeCamp YouTube Channel](https://www.youtube.com/c/Freecodecamp) for providing the platform.
+
+- [freeCodeCamp](www.freecodecamp.org) for engaging in learning.
+
+- [Kylie Ying's](https://www.youtube.com/c/YCubed) for teaching.
+---
